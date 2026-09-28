@@ -1,0 +1,14 @@
+{% extends 'comics/base.html' %}
+
+{% block content %}
+<h2>Каталог комиксов</h2>
+<div class="comics-grid">
+    {% for comic in comics %}
+    <div class="comic-card">
+        <img src="{{ comic.image }}" alt="{{ comic.title }}">
+        <h3>{{ comic.title }}</h3>
+        <p>{{ comic.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
