@@ -22,25 +22,34 @@ COMICS_DATA = [
     }
 ]
 
+def get_user_settings(request):
+    return {
+        'theme': request.COOKIES.get('theme', 'light'),
+        'font_size': request.COOKIES.get('font_size', 'normal'),
+        'accent': request.COOKIES.get('accent', 'blue'),
+    }
+
 def index(request):
+    settings = get_user_settings(request)
     current_theme = request.COOKIES.get('theme', 'light')
     context = {
         'comics': COMICS_DATA,
-        'theme': current_theme
+        **settings
     }
     return render(request, 'comics/index.html', context)
 
 def settings_view(request):
-    current_theme = request.COOKIES.get('theme', 'light')
+    settings = get_user_settings(request)
     
     if request.method == 'POST':
         form = ThemeForm(request.POST)
         if form.is_valid():
-            selected_theme = form.cleaned_data['theme']
             response = redirect('index')
-            response.set_cookie('theme', selected_theme, max_age=31536000)
+            response.set_cookie('theme', form.cleaned_data['theme'], max_age=31536000)
+            response.set_cookie('font_size', form.cleaned_data['font_size'], max_age=31536000)
+            response.set_cookie('accent', form.cleaned_data['accent'], max_age=31536000)
             return response
     else:
-        form = ThemeForm(initial={'theme': current_theme})
+        form = ThemeForm(initial=settings)
         
-    return render(request, 'comics/settings.html', {'form': form, 'theme': current_theme})
+    return render(request, 'comics/settings.html', {'form': form, **settings})
