@@ -6,19 +6,19 @@ COMICS_DATA = [
         'id': 1,
         'title': 'Человек-паук',
         'description': 'История о супергерое, который борется с преступностью.',
-        'image': 'images/Spider_man.jpg'
+        'image': 'comics/images/Spider_man.jpg'
     },
     {
         'id': 2,
         'title': 'Бэтмен',
         'description': 'Мститель в маске защищает Готэм от злодеев.',
-        'image': 'https://placehold.co/150x200?text=Batman'
+        'image': 'comics/images/Batman.jpg'
     },
     {
         'id': 3,
         'title': 'Death in the family',
         'description': 'After the disappearance of his friend Medkit, Sword looks for answers. Join Sword as he inches closer to the secrets of the Inpherno.',
-        'image': 'https://placehold.co/150x200?text=Spider-Verse'
+        'image': 'comics/images/ditf.png'
     }
 ]
 
