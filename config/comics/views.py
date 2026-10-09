@@ -6,7 +6,7 @@ COMICS_DATA = [
         'id': 1,
         'title': 'Человек-паук',
         'description': 'История о супергерое, который борется с преступностью.',
-        'image': 'https://placehold.co/150x200?text=Spider-Man'
+        'image': 'images/Spider_man.jpg'
     },
     {
         'id': 2,
@@ -16,8 +16,8 @@ COMICS_DATA = [
     },
     {
         'id': 3,
-        'title': 'Человек-паук: Через вселенные',
-        'description': 'Майлз Моралес становится новым Человеком-пауком.',
+        'title': 'Death in the family',
+        'description': 'After the disappearance of his friend Medkit, Sword looks for answers. Join Sword as he inches closer to the secrets of the Inpherno.',
         'image': 'https://placehold.co/150x200?text=Spider-Verse'
     }
 ]
