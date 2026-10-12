@@ -13,3 +13,4 @@ class ThemeForm(forms.Form):
         choices=[('blue', 'Синий'), ('orange', 'Оранжевый'), ('green', 'Зеленый')], 
         widget=forms.RadioSelect, label='Цвет акцента'
     )
+    username = forms.CharField(widget=forms.Textarea)

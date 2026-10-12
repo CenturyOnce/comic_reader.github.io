@@ -27,6 +27,7 @@ def get_user_settings(request):
         'theme': request.COOKIES.get('theme', 'light'),
         'font_size': request.COOKIES.get('font_size', 'normal'),
         'accent': request.COOKIES.get('accent', 'blue'),
+        'username' : request.COOKIES.get('username', 'User')
     }
 
 def index(request):
@@ -36,7 +37,8 @@ def index(request):
         'comics': COMICS_DATA,
         **settings
     }
-    return render(request, 'comics/index.html', context)
+    response = render(request, 'comics/index.html', context)
+    return response
 
 def settings_view(request):
     settings = get_user_settings(request)
@@ -48,6 +50,7 @@ def settings_view(request):
             response.set_cookie('theme', form.cleaned_data['theme'], max_age=31536000)
             response.set_cookie('font_size', form.cleaned_data['font_size'], max_age=31536000)
             response.set_cookie('accent', form.cleaned_data['accent'], max_age=31536000)
+            response.set_cookie('username', form.cleaned_data['username'], max_age=31536000)
             return response
     else:
         form = ThemeForm(initial=settings)
